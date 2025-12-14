@@ -1,0 +1,116 @@
+<style>
+    .founder-card {
+        background: var(--gradient-card);
+        padding: 40px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow-hard);
+        margin: 40px 0;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .founder-card::before {
+        content: '💜';
+        position: absolute;
+        font-size: 200px;
+        right: -50px;
+        top: -50px;
+        opacity: 0.1;
+        transform: rotate(-15deg);
+    }
+    
+    .certifications {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 50px 0;
+        flex-wrap: wrap;
+    }
+    
+    .cert-badge {
+        width: 150px;
+        height: 150px;
+        background: var(--gradient-card);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: var(--shadow-medium);
+        transition: var(--transition-smooth);
+    }
+    
+    .cert-badge:hover {
+        transform: translateY(-10px) scale(1.1);
+        box-shadow: var(--shadow-hard);
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos - Sas-Lashes : Histoire et Philosophie</title>
+</head>
+<body>
+    <main class="section-padding">
+        <div class="container">
+            <h1>L'Histoire de Sas-Lashes</h1>
+
+            <div style="display: flex; gap: 40px; align-items: center; margin-top: 40px; flex-wrap: wrap;">
+                <div style="flex: 1; min-width: 300px;">
+                    <img src="photo\fondatrice.jpg" alt="Portrait de la fondatrice" style="width: 100%; height: 400px; object-fit: cover; border-radius: var(--border-radius); box-shadow: var(--shadow-medium);">
+                </div>
+                <div style="flex: 2; min-width: 300px;">
+                    <h2 style="text-align: left; color: var(--accent-dark);">Notre Passion : Révéler la Beauté du Regard</h2>
+                    <p>Fondé en 2025, <strong>Sas-Lashes</strong> est né d'une volonté simple : offrir des extensions de cils qui allient sophistication, légèreté et tenue irréprochable. Loin des poses artificielles, nous nous engageons à sublimer vos traits naturels.</p>
+                    <p>Chaque technicienne est certifiée et suit un protocole de formation très strict, garantissant une pose sans douleur et surtout, sans dommage pour vos cils naturels.</p>
+                </div>
+            </div>
+
+            <div class="founder-card">
+                <h2 style="color: var(--accent-dark);">Notre Fondatrice</h2>
+                <p>Notre fondatrice, avec plus de 3 ans d'expérience dans l'industrie de la beauté et des extensions de cils, a créé Sas-Lashes avec une vision unique : combiner l'expertise technique avec une approche personnalisée de chaque client. Sa passion pour la perfection et son engagement envers la qualité ont fait de Sas-Lashes une référence dans le domaine.</p>
+            </div>
+
+            <div class="text-center mt-40">
+                <h2 style="color: var(--accent-dark);">Nos Engagements</h2>
+                <div class="service-cards">
+                    <div class="service-card">
+                        <h3>Écoute</h3>
+                        <p>Nous réalisons un diagnostic complet pour définir ensemble la courbure, la longueur et le volume parfaits.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Excellence</h3>
+                        <p>Nous utilisons les dernières innovations en matière d'adhésifs et de fibres pour un résultat professionnel superlatif.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Sécurité</h3>
+                        <p>L'hygiène est notre maître-mot. Matériel à usage unique et désinfection systématique garantis.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certifications">
+                <div class="cert-badge">
+                    <i class="fas fa-award" style="font-size: 40px; color: var(--accent-primary); margin-bottom: 10px;"></i>
+                    <span style="font-weight: 600;">Certification</span>
+                    <span style="font-size: 0.9rem;">Internationale</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-graduation-cap" style="font-size: 40px; color: var(--accent-primary); margin-bottom: 10px;"></i>
+                    <span style="font-weight: 600;">Formation</span>
+                    <span style="font-size: 0.9rem;">Continue</span>
+                </div>
+                <div class="cert-badge">
+                    <i class="fas fa-heart" style="font-size: 40px; color: var(--accent-primary); margin-bottom: 10px;"></i>
+                    <span style="font-weight: 600;">Satisfaction</span>
+                    <span style="font-size: 0.9rem;">Client</span>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>

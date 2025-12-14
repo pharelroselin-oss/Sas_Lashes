@@ -1,0 +1,15 @@
+[file name]: render.yaml
+[file content begin]
+services:
+  - type: web
+    name: sas-lashes
+    runtime: node
+    rootDirectory: /
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+    healthCheckPath: /
+    autoDeploy: true
+    plan: free

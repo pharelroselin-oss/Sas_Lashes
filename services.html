@@ -1,0 +1,107 @@
+<style>
+    .gallery-controls {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin: 30px 0;
+        flex-wrap: wrap;
+    }
+    
+    .filter-btn {
+        padding: 12px 25px;
+        background: var(--gradient-card);
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: var(--transition-smooth);
+        box-shadow: var(--shadow-soft);
+    }
+    
+    .filter-btn.active {
+        background: var(--gradient-magic);
+        color: white;
+        box-shadow: 0 10px 30px rgba(255, 0, 255, 0.3);
+    }
+</style>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie - Sas-Lashes : Nos Réalisations en Cils</title>
+</head>
+<body>
+    <main class="section-padding">
+        <div class="container">
+            <h1>Nos Réalisations en Cils</h1>
+            <p class="text-center mb-40">Découvrez la qualité et la diversité de nos poses : Volume Russe, Classique, Hybride, et Rehaussements.</p>
+
+            <div class="gallery-controls" style="display: flex; justify-content: center; gap: 15px; margin: 30px 0; flex-wrap: wrap;">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="volume">Volume Russe</button>
+                <button class="filter-btn" data-filter="classique">Classique</button>
+                <button class="filter-btn" data-filter="hybride">Hybride</button>
+                <button class="filter-btn" data-filter="rehaussement">Rehaussement</button>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="photo\bonder.jpg" alt="Extension de cils Volume Russe"></div>
+                <div class="gallery-item"><img src="photo\cil_a_cil.jpg" alt="Pose cil à cil effet naturel"></div>
+                <div class="gallery-item"><img src="photo\cinq.jpg" alt="Rehaussement de cils avant/après"></div>
+                <div class="gallery-item"><img src="photo\trois.jpg" alt="Pose de cils Hybride"></div>
+                <div class="gallery-item"><img src="photo\cluster_lash.jpg" alt="Détail du coin externe"></div>
+                <div class="gallery-item"><img src="photo\colle_jelly_glue.jpg" alt="Volume léger"></div>
+                <div class="gallery-item"><img src="photo\deux.jpg" alt="Volume intense"></div>
+                <div class="gallery-item"><img src="photo\double_spicy_eyes.jpg" alt="Cils colorés (option)"></div>
+                <div class="gallery-item"><img src="photo\frigo.jpg" alt="Photo de profil cils"></div>
+                <div class="gallery-item"><img src="photo\hybride_volume.jpg" alt="Pose Classique longueur 12mm"></div>
+                <div class="gallery-item"><img src="photo\isolateur_de_cils.jpg" alt="Pose Hybride avec légers pics"></div>
+                <div class="gallery-item"><img src="photo\miroir.jpg" alt="Gros plan sur un éventail"></div>
+                <div class="gallery-item"><img src="photo\pompe_a_eau.jpg" alt="Résultat d'un Rehaussement avec teinture"></div>
+                <div class="gallery-item"><img src="photo\pse_wispy.jpg" alt="Cils après remplissage 3 semaines"></div>
+                <div class="gallery-item"><img src="photo\pose_mega_volume.jpg" alt="Volume Russe courbe D"></div>
+                <div class="gallery-item"><img src="photo\quatre.jpg" alt="Pose Classique œil ouvert"></div>
+                <div class="gallery-item"><img src="photo\spatch.jpg" alt="Volume léger et doux"></div>
+                <div class="gallery-item"><img src="photo\tendre_les_cils.jpg" alt="Cils fournis et épais"></div>
+                <div class="gallery-item"><img src="photo\volume_russe.jpg" alt="Cils de rêve Sas-Lashes"></div>
+            </div>
+            
+            <div class="text-center mt-40">
+                <a href="contact.html" class="btn">Je veux ce regard !</a>
+            </div>
+
+        </div>
+    </main>
+    
+    <script>
+        // Gallery filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Filter gallery items
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            // In a real implementation, each item would have a data-category attribute
+                            // For now, we'll just show all items
+                            item.style.display = 'block';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>

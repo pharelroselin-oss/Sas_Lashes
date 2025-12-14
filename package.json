@@ -1,0 +1,38 @@
+[file name]: package.json
+[file content begin]
+{
+  "name": "sas-lashes",
+  "version": "2.0.0",
+  "description": "Site web professionnel - Extensions de cils Sas-Lashes",
+  "main": "serveur.js",
+  "scripts": {
+    "start": "node serveur.js",
+    "dev": "nodemon serveur.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "beauté",
+    "cils",
+    "extensions",
+    "lashes",
+    "eyelashes",
+    "cameroon",
+    "yaoundé"
+  ],
+  "author": "Sas-Lashes",
+  "license": "proprietary",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/votre-username/sas-lashes.git"
+  }
+}

@@ -1,0 +1,698 @@
+[file name]: index.html
+[file content begin]
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sas-Lashes : Pose de Cils & Extensions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-primary: #fef9ff;
+            --bg-secondary: #ffffff;
+            --text-primary: #5a4a6d;
+            --text-secondary: #8a7a9a;
+            --accent-primary: #d4a5d6;
+            --accent-secondary: #f6eff8;
+            --accent-dark: #b87bbd;
+            --accent-light: #e8d4eb;
+            --highlight: #ffb6e1;
+            --border-radius: 16px;
+            --shadow-soft: 0 4px 25px rgba(212, 165, 214, 0.1);
+            --shadow-medium: 0 8px 35px rgba(212, 165, 214, 0.15);
+            --shadow-hard: 0 12px 45px rgba(212, 165, 214, 0.2);
+            --transition: all 0.3s ease;
+            --max-width: 1200px;
+            --gradient-primary: linear-gradient(135deg, #e8d4eb 0%, #d4a5d6 100%);
+            --gradient-secondary: linear-gradient(135deg, #fef9ff 0%, #f6eff8 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            background: var(--gradient-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        h1 { 
+            font-size: 2.8rem; 
+            background: linear-gradient(135deg, var(--accent-dark), var(--text-primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        h2 { 
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            bottom: -8px;
+            left: 0;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+        
+        h3 { 
+            font-size: 1.6rem;
+            color: var(--accent-dark);
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(212, 165, 214, 0.2);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-dark);
+            text-decoration: none;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo:before {
+            content: '';
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            font-size: 1.05rem;
+            transition: var(--transition);
+            padding: 5px 0;
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-dark);
+        }
+
+        .nav-menu a.active {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--gradient-primary);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("photo/pose_mega_volume.jpg");
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 120px 20px;
+            margin-bottom: 80px;
+            border-radius: 0 0 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            background: linear-gradient(white, #e8d4eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            max-width: 750px;
+            margin: 0 auto 40px;
+            color: white;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--gradient-primary);
+            color: white;
+            padding: 16px 38px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-dark), #9d6ba0);
+            transition: var(--transition);
+            z-index: -1;
+        }
+
+        .btn:hover:before {
+            width: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        /* Sections */
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-center h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+        }
+
+        /* Cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+            gap: 35px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background-color: var(--bg-secondary);
+            border-radius: var(--border-radius);
+            padding: 35px 30px;
+            box-shadow: var(--shadow-soft);
+            transition: var(--transition);
+            border-top: 5px solid;
+            border-image: var(--gradient-primary);
+            border-image-slice: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 0;
+        }
+
+        .service-card:hover:before {
+            opacity: 0.03;
+        }
+
+        .service-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .service-card h3 {
+            margin-bottom: 20px;
+            color: var(--accent-dark);
+            font-size: 1.7rem;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            flex-grow: 1;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--text-primary), #4a3a5d);
+            color: white;
+            padding: 80px 0 40px;
+            margin-top: 80px;
+            border-radius: 40px 40px 0 0;
+        }
+
+        .footer .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 50px;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .footer-section h4:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background: var(--accent-primary);
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .footer-section a {
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-primary);
+            padding-left: 5px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-section ul li:before {
+            content: '→';
+            color: var(--accent-primary);
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 70px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .gallery-item {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            height: 280px;
+            box-shadow: var(--shadow-medium);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .gallery-item:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .gallery-item:hover:before {
+            opacity: 0.1;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-hard);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Utility Classes */
+        .mt-40 { margin-top: 40px; }
+        .mt-60 { margin-top: 60px; }
+        .mb-40 { margin-bottom: 40px; }
+        .mb-60 { margin-bottom: 60px; }
+        .mb-20 { margin-bottom: 20px; }
+        .pt-60 { padding-top: 60px; }
+        
+        /* Decorative Elements */
+        .floral-decoration {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            opacity: 0.05;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .floral-1 {
+            top: 10%;
+            left: 5%;
+            background: radial-gradient(circle, var(--accent-primary) 0%, transparent 70%);
+        }
+        
+        .floral-2 {
+            bottom: 10%;
+            right: 5%;
+            background: radial-gradient(circle, var(--highlight) 0%, transparent 70%);
+        }
+        
+        /* List Styling */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .styled-list li {
+            margin-bottom: 15px;
+            padding-left: 35px;
+            position: relative;
+            line-height: 1.7;
+        }
+        
+        .styled-list li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 24px;
+            height: 24px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .nav-menu ul {
+                gap: 25px;
+            }
+            
+            h1 { font-size: 2.4rem; }
+            h2 { font-size: 2rem; }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            h3 { font-size: 1.4rem; }
+            
+            .hero {
+                padding: 80px 20px;
+                border-radius: 0 0 30px 30px;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .service-cards {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .section-padding {
+                padding: 70px 0;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 20px;
+            }
+            
+            .logo {
+                font-size: 1.8rem;
+            }
+            
+            h1 { font-size: 1.8rem; }
+            h2 { font-size: 1.6rem; }
+            
+            .hero-content h1 {
+                font-size: 1.9rem;
+            }
+            
+            .btn {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .footer .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container nav-content">
+            <a href="/" class="logo">Sas-Lashes</a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="/" class="active">Accueil</a></li>
+                    <li><a href="/services">Services</a></li>
+                    <li><a href="/products">Produits</a></li>
+                    <li><a href="/about">À Propos</a></li>
+                    <li><a href="/contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Sublimez Votre Regard avec Sas-Lashes</h1>
+                <p>L'expertise en pose d'extensions et rehaussement de cils pour un effet spectaculaire et naturel.</p>
+                <a href="/contact" class="btn">Prendre Rendez-vous</a>
+            </div>
+        </section>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="text-center mb-60">
+                    <h2>Notre Philosophie de la Beauté</h2>
+                    <p style="max-width: 800px; margin: 30px auto 0; color: var(--text-secondary); font-size: 1.1rem;">Chez Sas-Lashes, nous combinons hygiène irréprochable, qualité supérieure des produits et personnalisation de la pose. Chaque regard est unique, et nos extensions le reflètent à la perfection.</p>
+                </div>
+                
+                <div class="service-cards">
+                    <div class="service-card">
+                        <h3>Expertise Certifiée</h3>
+                        <p>Techniques avancées et formations continues pour des résultats durables et sécurisés. Nos techniciennes sont régulièrement formées aux dernières tendances.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Matériaux Premium</h3>
+                        <p>Utilisation exclusive de cils en soie ou synthétiques de haute qualité pour un confort optimal et un rendu naturel et léger.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Hygiène Rigoureuse</h3>
+                        <p>Votre sécurité est notre priorité absolue. Nous respectons des protocoles stricts de désinfection et utilisons du matériel à usage unique.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding text-center">
+            <div class="container">
+                <h2>Découvrez Nos Prestations Complètes</h2>
+                <p style="color: var(--text-secondary); margin: 25px auto 0; max-width: 700px; font-size: 1.1rem;">De l'effet naturel à l'ultra-volume, trouvez le style de cils qui vous correspond parfaitement.</p>
+                <a href="/services" class="btn mt-60">Voir tous les Services</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h4>Sas-Lashes</h4>
+                <p>Spécialiste de l'extension et de la pose de cils. Le luxe pour vos yeux, accessible à toutes.</p>
+                <div style="margin-top: 25px;">
+                    <a href="#" style="margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="margin-right: 15px; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="font-size: 1.2rem;"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Liens Rapides</h4>
+                <ul>
+                    <li><a href="/services">Nos Prestations</a></li>
+                    <li><a href="/about">Notre Histoire</a></li>
+                    <li><a href="/mentions-legales">Mentions Légales</a></li>
+                    <li><a href="/politique-confidentialite">Confidentialité</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contactez-nous</h4>
+                <p><i class="fas fa-phone" style="margin-right: 10px; color: var(--accent-primary);"></i> +237 686 82 40 83</p>
+                <p><i class="fas fa-envelope" style="margin-right: 10px; color: var(--accent-primary);"></i> contact@saslashes.com</p>
+                <p><i class="fas fa-map-marker-alt" style="margin-right: 10px; color: var(--accent-primary);"></i> Chapelle TKC, face restaurant au goût d'Afrique</p>
+                <a href="/contact" class="btn" style="margin-top: 25px; padding: 12px 25px; display: inline-block;">Nous contacter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sas-Lashes. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation active state
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-menu a');
+            
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPath || 
+                   (currentPath === '/' && link.getAttribute('href') === '/')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
